@@ -1,0 +1,15 @@
+.diary-container {
+  margin-bottom: 20px;
+}
+
+.diary-container p {
+  margin: 0px;
+}
+
+.notification {
+  color: red
+}
+
+.radio-title {
+  margin-right: 10px;
+}
