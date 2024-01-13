@@ -7,6 +7,12 @@ const getPatients = (): Patient[] => {
   return patientsData;
 };
 
+const getPatientById = (id: string): Patient => {
+  const patient = patientsData.find(el => el.id === id);
+  if(!patient) throw new Error('Patient not found');
+  return patient;
+};
+
 const addPatient = (newPatient: NewPatientEntry): Patient => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   const id = uuid();
@@ -20,5 +26,6 @@ const addPatient = (newPatient: NewPatientEntry): Patient => {
 
 export default {
   getPatients,
-  addPatient
+  addPatient,
+  getPatientById
 };

@@ -14,7 +14,21 @@ router.get('/', (_req, res) => {
       gender,
       occupation
     }));
-  res.status(200).json(patients);
+  return res.status(200).json(patients);
+});
+
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
+  try{
+    const patient = patientsService.getPatientById(id);
+    return res.json(patient);
+  }catch(error){
+    let errorMessage = 'Something went wrong.';
+    if (error instanceof Error) {
+      errorMessage += ' Error: ' + error.message;
+    }
+    return res.status(400).send(errorMessage);
+  }
 });
 
 router.post('/', (req, res) => {
